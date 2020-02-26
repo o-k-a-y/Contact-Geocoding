@@ -1,0 +1,23 @@
+html
+    head
+        title Contacts login
+
+        link(rel='stylesheet' href='/stylesheets/style.css')
+
+        //- Bootstrap
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+
+    body
+        | Please enter the super-secret user credentials needed login
+        div(class="d-flex")
+            form(class="border rounded" action='login' method='POST')#loginForm
+                div(class="form-group form-inline")
+                    label(for='username') Username:  
+                    input(class="form-control mx-sm-3" placeholder='username' type='text' name='username' id='username' required)
+                div(class="form-group form-inline")
+                    label(for='password') Password:  
+                    input(class="form-control mx-sm-3" placeholder='password123' type='password' name='password' id='password' required)
+                button(class="btn btn-primary" type='submit')#loginButton Login
+                p #{error}
+
+    a(href='/mailer') Add a new contact

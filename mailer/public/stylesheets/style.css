@@ -1,0 +1,58 @@
+body {
+    padding: 50px;
+    /* color: blue; */
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00b7ff;
+    display:block
+}
+
+
+.form-group{
+    display: inline-block
+  }
+
+#mapid {
+    float: left;
+    max-width: 50%;
+    min-width: 50%;
+
+
+    height: 450px;
+    display: block;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+    /* border-collapse: collapse; */
+    text-align: center;
+    /* float:right */
+ 
+    /* background-color: #dceaf0; */
+}
+
+#logout {
+    display: inline-block;
+    float: right;
+}
+
+#contactsForm, #loginForm, #mailerForm {
+    padding: 10px;
+}
+
+#contactsForm {
+    float: right;
+    max-width: 49%;
+    min-width: 49%;
+}
+
+#loginButton, #newMailerButton, #addButton, #updateButton, #deleteButton {
+    margin: 5px;
+}

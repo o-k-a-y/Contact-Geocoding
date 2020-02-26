@@ -1,0 +1,96 @@
+html
+  head
+    title New Contact
+
+    link(rel='stylesheet' href='/stylesheets/style.css')
+
+    //- Bootstrap
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+
+  body 
+    form(class="border" action="/mailer" method="POST")#mailerForm
+
+      //- Sirname
+      div(class="form-group")
+        div(class="form-check")
+          input(class="form-check-input" type="radio" name="surname" value="Mr." id="mr", checked) 
+          label(class="form-check-lable" for="mr") Mr.
+      div(class="form-group")
+        div(class="form-check")
+          input(type="radio" name="surname" value="Mrs." id="mrs")  
+          label(for="mrs") Mrs.
+      div(class="form-group")
+        div(class="form-check")
+          input(type="radio" name="surname" value="Ms." id="ms") 
+          label(for="ms") Ms.
+      div(class="form-group")
+        div(class="form-check")
+          input(type="radio" name="surname" value="Dr." id="dr") 
+          label(for="dr") Dr.
+      
+      //- Name
+      div(class="form-row")
+        div(class="col")
+          label(for="first") First Name:
+          input(class="form-control" placeholder="Adam" name="first" id="first" type="text", required, autofocus)
+        div(class="col")
+          label(for="last") Last Name:
+          input(class="form-control" placeholder="Smith" name="last", id ="last" type="text", required) 
+
+      //- Address
+      div(class="form-row")
+        div(class="col")
+          label(for="street") Street: 
+          input(class="form-control" placeholder="505 Ramapo Valley Road" name="street" id="street" type="text", required)
+      div(class="form-row")
+        div(class="col")
+          label(for="city") City: 
+          input(class="form-control" placeholder="Mahwah" name="city" id="city" type="text", required)
+
+      div(class="form-row")
+        div(class="col")
+          label(for="state") State: 
+          select(class="custom-select custom-select-sm" name="state")
+            option(value="NJ") NJ
+            option(value="NY") NY
+            option(value="PA") PA
+            option(value="CT") CT
+      
+      div(class="form-row")
+        div(class="col")
+          label(for="zip") Zip:  
+          input(class="form-control" placeholder="07430" name="zip" id="zip" type="text", required) 
+
+      //- Phone and email
+      div(class="form-row")
+        div(class="col")
+          label(for="phone") Phone:  
+          input(class="form-control" placeholder="1111111111" name="phone" id="phone" type="text") 
+        div(class="col")
+          label(for="email") Email: 
+          input(class="form-control" placeholder="myemail@mail.com" name="email" id="email" type="text")
+
+      //- Contact methods
+      div(class="form-row")
+        | How may we contact you?
+        div(class="form-check")
+          input(class="form-check-input" type="checkbox" value="on" name="contactByPhone" id="contactByPhone")
+          label(class="form-check-label" for="contactByPhone") Phone  
+        div(class="form-check")
+          input(class="form-check-input" type="checkbox" value="on" name="contactByMail" id="contactByMail") 
+          label(class="form-check-label" for="contactByMail") Mail 
+        div(class="form-check")
+          input(class="form-check-input" type="checkbox" value="on" name="contactByEmail" id="contactByEmail")  
+          label(class="form-check-label" for="contactByEmail") Email 
+        div(class="form-check")
+          input(class="form-check-input" type="checkbox" value="on" name="contactByAny" id="contactByAny", checked)  
+          label(class="form-check-label" for="contactByAny") Any 
+        input(type="hidden" id="geocode" name="latlong")
+
+
+      br
+      .form-group
+        button(class="btn btn-outline-success" type="submit") Send me mail
+
+    a(href='/contacts') All contacts
+

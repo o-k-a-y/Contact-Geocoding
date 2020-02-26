@@ -1,0 +1,136 @@
+html
+	head
+		title Contact Database
+
+		link(rel='stylesheet' href='/stylesheets/style.css')
+
+		//- JQuery
+		script(src="https://code.jquery.com/jquery-3.3.1.js")
+
+		//- Mapbox
+		script(src="https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js")
+		link(rel="stylesheet" type="text/css" href="https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css")
+		script(src="/javascripts/contactMap.js")
+
+		//- Bootstrap
+		link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+
+	body
+		button#logout(class="btn btn-primary" type="button") Logout
+		h1 Contacts
+
+		//- Contacts table
+		table(class="table table-striped table-bordered")
+			thead(class="thead-dark")
+				tr
+					th Name
+					th Address
+					th Email
+					th Phone
+					th Contact by phone
+					th Contact by mail
+					th Contact by email
+
+			each contact in data 
+				tr(id=contact._id)
+					td #{contact.name}
+					td #{contact.address}
+					td #{contact.email}
+					td #{contact.phone}
+					td #{contact.contactByPhone}
+					td #{contact.contactByMail}
+					td #{contact.contactByEmail}
+
+		//- Map
+		div(class="d-block border")#mapid
+
+		//- Form
+		form(class="d-block border")#contactsForm
+			#selectableContact
+				input(class="form-control-sm" placeholder="CRUD contact" name="selectedContact", disabled)
+			
+			//- Id for each contact
+			input(type="hidden" name="_id" id="contactId")
+
+			//- Sirname
+			div(class="form-group")
+				div(class="form-check form-check-inline")
+					input(class="form-check-input" type="radio" name="surname" value="Mr." id="mr", checked) 
+					label(class="form-check-label" for="mr") Mr.
+			div(class="form-group")
+				div(div class="form-check form-check-inline")
+					input(class="form-check-input" type="radio" name="surname" value="Mrs." id="mrs")  
+					label(class="form-check-label" for="mrs") Mrs.
+			div(class="form-group")
+				div(div class="form-check form-check-inline")
+					input(class="form-check-input" type="radio" name="surname" value="Ms." id="ms") 
+					label(class="form-check-label" for="ms") Ms.
+			div(class="form-group")
+				div(div class="form-check form-check-inline")
+					input(class="form-check-input" type="radio" name="surname" value="Dr." id="dr") 
+					label(class="form-check-label" for="dr") Dr.
+			div(class="form-row")
+				div(class="col")
+					label(for="first") First Name:
+					input(class="form-control" placeholder="Adam" name="first" id="first" type="text", required, autofocus)
+				div(class="col")
+					label(for="last") Last Name:
+					input(class="form-control" placeholder="Smith" name="last", id ="last" type="text", required) 
+
+			//- Address
+			div(class="form-row")
+				div(class="col")
+					label(for="street") Street: 
+					input(class="form-control" placeholder="505 Ramapo Valley Road" name="street" id="street" type="text", required)
+			div(class="form-row")
+				div(class="col")
+					label(for="city") City: 
+					input(class="form-control" placeholder="Mahwah" name="city" id="city" type="text", required)
+
+			div(class="form-row")
+				div(class="col")
+					label(for="state") State: 
+					select(class="custom-select custom-select-sm" name="state")
+						option(value="NJ") NJ
+						option(value="NY") NY
+						option(value="PA") PA
+						option(value="CT") CT
+			
+			div(class="form-row")
+				div(class="col")
+					label(for="zip") Zip:  
+					input(class="form-control" placeholder="07430" name="zip" id="zip" type="text", required) 
+
+
+			//- Phone and email
+			div(class="form-row")
+				div(class="col")
+					label(for="phone") Phone:  
+					input(class="form-control" placeholder="1111111111" name="phone" id="phone" type="text") 
+				div(class="col")
+					label(for="email") Email: 
+					input(class="form-control" placeholder="myemail@mail.com" name="email" id="email" type="text")
+
+			//- Contact methods
+			div(class="form-row")
+				| How may we contact you?
+				div(class="form-check")
+					input(class="form-check-input" type="checkbox" value="on" name="contactByPhone" id="contactByPhone")
+					label(for="contactByPhone") Phone 
+				div(class="form-check")
+					input(class="form-check-input" type="checkbox" value="on" name="contactByMail" id="contactByMail") 
+					label(for="contactByMail") Mail 
+				div(class="form-check")
+					input(class="form-check-input" type="checkbox" value="on" name="contactByEmail" id="contactByEmail")  
+					label(for="contactByEmail") Email 
+				div(class="form-check")
+					input(class="form-check-input" type="checkbox" value="on" name="contactByAny" id="contactByAny", checked)  
+					label(for="contactByAny") Any 
+				input(type="hidden" id="latlng" name="latlong")
+
+			.form-group
+				button#addButton(class="btn btn-outline-success" type="button") Add
+				button#updateButton(class="btn btn-outline-warning btn-space" type="button") Update
+				button#deleteButton(class="btn btn-outline-danger btn-space" type="button") Delete
+				p#error
+
