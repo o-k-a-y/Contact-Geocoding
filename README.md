@@ -16,6 +16,6 @@ Once logged in, will redirect you to /contacts route
 ### /contacts
 Once signed in, the user will be redirected to the /contacts page.
 Here you can see:
-  a table of all users and their information
-  a map containing markers for each user located at their geolocation
-  a form for CRUD operations on each user document
+- a table of all users and their information
+- a map containing markers for each user located at their geolocation
+- a form for CRUD operations on each user document
