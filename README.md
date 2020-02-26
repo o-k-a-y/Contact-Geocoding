@@ -1,5 +1,14 @@
 # Contact-Geocoding
-Node.js web application that takes contact data to create entries in a database as well as create map markers using Express, MongoDB, LeafletJS, and Mapbox
+Node.js web application that takes contact data to create entries in a database for CRUD operations as well as create map markers using Express, MongoDB, LeafletJS, and Mapbox. 
+
+## Install
+Make sure you have NodeJS and MongoDB installed: 
+- https://docs.mongodb.com/manual/administration/install-community/
+- https://www.npmjs.com/get-npm
+Clone this repo
+Change directory to where it's been cloned to
+Run npm install
+Run npm start
 
 ## Routes
 ### /
